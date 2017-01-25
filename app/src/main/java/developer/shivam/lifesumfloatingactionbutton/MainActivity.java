@@ -37,15 +37,18 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < 5; i++) {
             pentagonVertices[i] = new Point((int) (radius * Math.cos(rotation + i * 2 * Math.PI / 5)) + centerX,
                     (int) (radius * Math.sin(rotation + i * 2 * Math.PI / 5)) + centerY);
+            System.out.println("X : " + pentagonVertices[i].x);
+            System.out.println("Y : " + pentagonVertices[i].y);
         }
 
         buttons = new Button[pentagonVertices.length];
+        ((RelativeLayout) findViewById(R.id.activity_main)).removeAllViews();
 
         for (int i = 0; i < buttons.length ; i++) {
             buttons[i] = new Button(MainActivity.this);
             buttons[i].setLayoutParams(new RelativeLayout.LayoutParams(100, 100));
-            buttons[i].setX(pentagonVertices[i].x - buttons[i].getWidth()/2);
-            buttons[i].setY(pentagonVertices[i].y - buttons[i].getHeight()/2);
+            buttons[i].setX(pentagonVertices[i].x - buttons[i].getLayoutParams().width/2);
+            buttons[i].setY(pentagonVertices[i].y - buttons[i].getLayoutParams().height);
             buttons[i].setBackgroundResource(R.drawable.circular_background);
             buttons[i].setTextColor(Color.WHITE);
             buttons[i].setText(String.valueOf(i + 1));
