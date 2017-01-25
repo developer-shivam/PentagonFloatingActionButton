@@ -1,5 +1,6 @@
 package developer.shivam.lifesumfloatingactionbutton;
 
+import android.graphics.Color;
 import android.graphics.Point;
 import android.support.annotation.MainThread;
 import android.support.v7.app.AppCompatActivity;
@@ -28,7 +29,10 @@ public class MainActivity extends AppCompatActivity {
             buttons[i].setX(pentagonVertices[i].x - buttons[i].getWidth()/2);
             buttons[i].setY(pentagonVertices[i].y - buttons[i].getHeight()/2);
             buttons[i].setLayoutParams(new RelativeLayout.LayoutParams(50, 50));
-            buttons[i].setBackgroundResource(R.drawable.circular_background);
+            buttons[i].setBackground(getResources().getDrawable(R.drawable.circular_background));
+            buttons[i].setTextColor(Color.WHITE);
+            buttons[i].setText(String.valueOf(i + 1));
+            buttons[i].setTextSize(20);
             ((RelativeLayout) findViewById(R.id.activity_main)).addView(buttons[i]);
         }
     }
@@ -46,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
          * Calculating the coordinates of vertices of pentagon
          */
         for (int i = 0; i < 5; i++) {
-            pentagonVertices[i] = new Point((int) (radius * Math.cos(i * 2 * Math.PI / 5)) + centerX / 2, (int) (radius * Math.sin(i * 2 * Math.PI / 5) + centerY / 2));
+            pentagonVertices[i] = new Point((int) (radius * Math.cos(100 + i * 2 * Math.PI / 5)) + centerX,
+                    (int) (radius * Math.sin(100 + i * 2 * Math.PI / 5)) + centerY);
             System.out.println("X : " + pentagonVertices[i].x);
             System.out.println("Y : " + pentagonVertices[i].y);
         }
