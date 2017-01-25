@@ -10,7 +10,6 @@ import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.View;
-import android.view.animation.AnimationSet;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
@@ -83,9 +82,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 AnimatorSet animationSet = new AnimatorSet();
 
-                for (int i = 0; i < buttons.length; i++) {
-                    buttons[i].setX(startPositionX);
-                    buttons[i].setY(startPositionY);
+                for (Button button : buttons) {
+                    button.setX(startPositionX);
+                    button.setY(startPositionY);
                 }
 
                 ValueAnimator buttonOneAnimator = ValueAnimator.ofFloat(startPositionX + buttons[0].getLayoutParams().width/2, pentagonVertices[0].x);
@@ -98,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
                 buttonOneAnimator.setInterpolator(new FastOutSlowInInterpolator());
                 buttonOneAnimator.setDuration(500);
+                buttonOneAnimator.setStartDelay(30);
 
                 ValueAnimator buttonTwoAnimator = ValueAnimator.ofFloat(startPositionX + buttons[0].getLayoutParams().width/2, pentagonVertices[1].x);
                 buttonTwoAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
                 buttonTwoAnimator.setInterpolator(new FastOutSlowInInterpolator());
                 buttonTwoAnimator.setDuration(500);
-                buttonTwoAnimator.setStartDelay(10);
+                buttonTwoAnimator.setStartDelay(20);
 
                 ValueAnimator buttonThreeAnimator = ValueAnimator.ofFloat(startPositionX + buttons[0].getLayoutParams().width/2, pentagonVertices[2].x);
                 buttonThreeAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
                 buttonThreeAnimator.setInterpolator(new FastOutSlowInInterpolator());
                 buttonThreeAnimator.setDuration(500);
-                buttonThreeAnimator.setStartDelay(20);
+                buttonThreeAnimator.setStartDelay(10);
 
                 ValueAnimator buttonFourAnimator = ValueAnimator.ofFloat(startPositionX + buttons[0].getLayoutParams().width/2, pentagonVertices[3].x);
                 buttonFourAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
                 buttonFourAnimator.setInterpolator(new FastOutSlowInInterpolator());
                 buttonFourAnimator.setDuration(500);
-                buttonFourAnimator.setStartDelay(30);
+                buttonFourAnimator.setStartDelay(0);
 
                 ValueAnimator buttonFiveAnimator = ValueAnimator.ofFloat(startPositionX + buttons[0].getLayoutParams().width/2, pentagonVertices[4].x);
                 buttonFiveAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 /////////////////////////////////////////////////////////////////////
 
-                ValueAnimator buttonOneAnimatorY = ValueAnimator.ofFloat(startPositionY , pentagonVertices[0].y);
+                ValueAnimator buttonOneAnimatorY = ValueAnimator.ofFloat(startPositionY , pentagonVertices[0].y - buttons[0].getLayoutParams().height);
                 buttonOneAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                     @Override
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 buttonOneAnimatorY.setInterpolator(new FastOutSlowInInterpolator());
                 buttonOneAnimatorY.setDuration(500);
 
-                ValueAnimator buttonTwoAnimatorY = ValueAnimator.ofFloat(startPositionY, pentagonVertices[1].y);
+                ValueAnimator buttonTwoAnimatorY = ValueAnimator.ofFloat(startPositionY, pentagonVertices[1].y - buttons[0].getLayoutParams().height);
                 buttonTwoAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                     @Override
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 buttonTwoAnimatorY.setInterpolator(new FastOutSlowInInterpolator());
                 buttonTwoAnimatorY.setDuration(500);
 
-                ValueAnimator buttonThreeAnimatorY = ValueAnimator.ofFloat(startPositionY, pentagonVertices[2].y);
+                ValueAnimator buttonThreeAnimatorY = ValueAnimator.ofFloat(startPositionY, pentagonVertices[2].y - buttons[0].getLayoutParams().height);
                 buttonThreeAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                     @Override
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 buttonThreeAnimatorY.setInterpolator(new FastOutSlowInInterpolator());
                 buttonThreeAnimatorY.setDuration(500);
 
-                ValueAnimator buttonFourAnimatorY = ValueAnimator.ofFloat(startPositionY, pentagonVertices[3].y);
+                ValueAnimator buttonFourAnimatorY = ValueAnimator.ofFloat(startPositionY, pentagonVertices[3].y - buttons[0].getLayoutParams().height);
                 buttonFourAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                     @Override
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 buttonFourAnimatorY.setInterpolator(new FastOutSlowInInterpolator());
                 buttonFourAnimatorY.setDuration(500);
 
-                ValueAnimator buttonFiveAnimatorY = ValueAnimator.ofFloat(startPositionY, pentagonVertices[4].y);
+                ValueAnimator buttonFiveAnimatorY = ValueAnimator.ofFloat(startPositionY, pentagonVertices[4].y - buttons[0].getLayoutParams().height);
                 buttonFiveAnimatorY.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                     @Override
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -207,6 +207,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 animationSet.playTogether(buttonOneAnimator, buttonTwoAnimator, buttonThreeAnimator, buttonFourAnimator, buttonFiveAnimator,
                         buttonOneAnimatorY, buttonTwoAnimatorY, buttonThreeAnimatorY, buttonFourAnimatorY, buttonFiveAnimatorY);
                 animationSet.start();
+
         }
     }
 }
