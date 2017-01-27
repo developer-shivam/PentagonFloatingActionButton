@@ -1,47 +1,11 @@
-Crescento
-=========
+PentagonFloatingActionButton Animation
+======================================
 
-Android library that adds a curve at the below of image views and relative layouts. **CrescentoImageView** and **CrescentoContainer** are the image view and relative layout respectively. You can change the radius of curve with **attribute:curvature**.	
+Animation that create a pentagon shape with buttons on the click of floating action button. This project illustrated the use case of ValueAnimator and how to create and add views dynamically.
 
-[![API](https://img.shields.io/badge/API-11%2B-red.svg)](https://android-arsenal.com/api?level=11)
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Crescento-green.svg?style=true)](https://android-arsenal.com/details/1/4684)
-[![Android Weekly](https://img.shields.io/badge/Android%20Weekly-%23232-blue.svg)](http://androidweekly.net/issues/issue-232)
-[![AndroidDev Digest](https://img.shields.io/badge/AndroidDev%20Digest-%23119-yellow.svg)](https://www.androiddevdigest.com/digest-119/)
+![Sample][SampleImage]
 
-![Sample Image 2][SampleOneNexus]
-
-Overview
---------
-
-**Crescento** provides following advantages:
-
-* **Curve Bottom**: It adds a curve bottom as stated above. 
-* **Tint**: It add tint on **CrescentoImageView** by using **attribute:tintColor**. It pick color automatically from the image if **tintMode** is set to **automatic**.
-* **Alpha**: Add transparency in tint by using **attribute:tintAlpha**. Varies from 0 to 255.
-* **Gradient** : Add gradient on the imageview.
-* **Gravity** : You can now add crescento to bottom of your layout. Arc will form on top.
-
-**[Sample Apk]** 
-
-Use with **[KenBurnsView]**
----------------------------------------
-
-![Sample Image 1][GifSample]
-
-```java
-<developer.shivam.library.CrescentoContainer android:id="@+id/crescentoContainer"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:elevation="20dp"
-        android:scaleType="centerCrop"
-        attribute:curvature="50dp">
-
-        <com.flaviofaria.kenburnsview.KenBurnsView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/wallpaper2" />
-</developer.shivam.library.CrescentoContainer>
-```
+![Sample APK]
 
 Donations
 ---------
@@ -59,80 +23,6 @@ This project needs you! If you would like to support this project's further deve
 * **[Donate $2799]**: Go buddy, buy Macbook Pro for yourself!
 Of course, you can also choose what you want to donate, all donations are awesome!
 
-Demo
-----
-
-Here is a very good example of how to use `Crescento`. **Zsolt Szilvai** has made a very good design and I've illustrated using crescento.
-
-https://material.uplabs.com/posts/cinema-application-interface
-
-![Sample of Zsolt Szilvai's design][SampleTwo]
-
-Gradle Integration
-------------------
-
-If you are using gradle then add these lines in build.gradle file at project level.
-```java
-	allprojects {
-        repositories {
-            ...
-            maven { url "https://jitpack.io" }
-        }
-    }
-```
-
-Add below lines in build.gradle at app level.
-```java
-	compile 'com.github.developer-shivam:crescento:1.1.0'
-```
-
-Basic Usage
------------
-
-*For a working implementation, see `/app` folder*
-
-**CrescentoImageView**
-
-```xml
-<developer.shivam.library.CrescentoImageView android:id="@+id/crescentoImageView"
-    android:layout_width="match_parent"
-    android:layout_height="300dp"
-    android:elevation="20dp"
-    android:scaleType="centerCrop"
-    attribute:gravity="top"
-    attribute:curvature="50dp"
-    attribute:tintMode="manual"
-    attribute:tintColor="#FFFFFF"
-    attribute:tintAlpha="50" />
-```
-
-**CrescentoContainer**
-
-```xml
-<developer.shivam.library.CrescentoContainer android:id="@+id/crescentoContainer"
-    android:layout_width="match_parent"
-    android:layout_height="300dp"
-    android:elevation="20dp"
-    attribute:curvature="50dp">
-
-    <!-- Your code here -->
-
-</developer.shivam.library.CrescentoContainer>
-```
-
-Attributes
-----------
-
-* **curvature**: To change the size of curve.
-* **curvatureDirection** : To change the direction of curvature. Whether **inward** or **outward**.
-* **tintColor**: To add tint on image view.
-* **tintMode**: To add tint **manually** or **automatically**. If **automatically** it will pick color from image you have set.
-* **tintAlpha**: To set the amount of tint. 0 for 100% transparent and 255 for opaque.
-* **gradientDirection** : To set the direction of gradient. Supported direction are **TOP_TO_BOTTOM**, **BOTTOM_TO_TOP**, **LEFT_TO_RIGHT** and **RIGHT_TO_LEFT**.
-* **gradientStartColor** : gradient start color.
-* **gradientEndColor** : gradient end color.
-* **gravity** : To set gravity. **TOP** or **BOTTOM**.
- 
 #Connect Me
 
 Shivam Satija (droidsergeant)
@@ -178,20 +68,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-[Facebook]:             /art/fb.png
-[Google+]:              /art/gplus.png
-[LinkedIn]:             /art/linkedin.png
-[SampleOne]:		 	/art/sample1_resize.png
-[SampleTwo]:			/art/sample2.png
-[SampleOneNexus]: 	 	/art/sample_image.jpg
-[GifSample]:         	/art/sample2.gif
-[GifSample2]:		 	/art/sample3.gif
-[Donate $5]: 		https://www.paypal.me/developerShivam/5
-[Donate $10]:  		https://www.paypal.me/developerShivam/10
-[Donate $15]:  		https://www.paypal.me/developerShivam/15
-[Donate $25]:  		https://www.paypal.me/developerShivam/25
-[Donate $50]: 		https://www.paypal.me/developerShivam/50
-[Donate $100]: 		https://www.paypal.me/developerShivam/100
-[Donate $2799]: 	https://www.paypal.me/developerShivam/2799
-[Sample Apk]:		https://github.com/developer-shivam/crescento/blob/master/demo.apk
-[KenBurnsView]:		https://github.com/flavioarfaria/KenBurnsView
+[SampleImage]:          /art/sample.gif
+[Sample APK]:           https://github.com/developer-shivam/crescento/blob/master/demo.apk
