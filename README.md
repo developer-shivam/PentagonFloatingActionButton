@@ -69,4 +69,4 @@ SOFTWARE.
 ```
 
 [SampleImage]:          /art/sample.gif
-[Sample APK]:           https://github.com/developer-shivam/crescento/blob/master/demo.apk
+[Sample APK]:           https://github.com/developer-shivam/PentagonFloatingActionButton/blob/master/app-debug.apk
