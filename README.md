@@ -5,7 +5,7 @@ Animation that create a pentagon shape with buttons on the click of floating act
 
 ![Sample][SampleImage]
 
-![Sample APK]
+**[Sample APK]**
 
 Donations
 ---------
